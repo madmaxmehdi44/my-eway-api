@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from 'react';
 
 export default function EwayPayForm() {
     const [amount, setAmount] = useState('');
-    const buttonRef = useRef<HTMLDivElement | null>(null);
+    const buttonRef = useRef(null);
 
     useEffect(() => {
         const script = document.createElement('script');
@@ -13,13 +13,11 @@ export default function EwayPayForm() {
         script.setAttribute('data-publicapikey', 'epk-7C850896-2DE8-4F6D-A30B-6CA74087B0EE');
         script.setAttribute('data-currency', 'AUD');
         script.setAttribute('data-amount', '0'); // مقدار اولیه
-        if (buttonRef.current) {
-            buttonRef.current.appendChild(script);
-        }
+        buttonRef.current.appendChild(script);
     }, []);
 
     useEffect(() => {
-        const button = buttonRef.current?.querySelector('.eway-paynow-button');
+        const button = buttonRef.current.querySelector('.eway-paynow-button');
         if (button) {
             button.setAttribute('data-amount', amount || '0');
         }

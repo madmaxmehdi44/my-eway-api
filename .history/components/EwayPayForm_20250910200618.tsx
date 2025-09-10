@@ -19,7 +19,7 @@ export default function EwayPayForm() {
     }, []);
 
     useEffect(() => {
-        const button = buttonRef.current?.querySelector('.eway-paynow-button');
+        const button = buttonRef.current.querySelector('.eway-paynow-button');
         if (button) {
             button.setAttribute('data-amount', amount || '0');
         }

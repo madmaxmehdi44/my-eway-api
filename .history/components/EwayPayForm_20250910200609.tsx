@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from 'react';
 
 export default function EwayPayForm() {
     const [amount, setAmount] = useState('');
-    const buttonRef = useRef<HTMLDivElement | null>(null);
+    const buttonRef = useRef(null);
 
     useEffect(() => {
         const script = document.createElement('script');
@@ -19,7 +19,7 @@ export default function EwayPayForm() {
     }, []);
 
     useEffect(() => {
-        const button = buttonRef.current?.querySelector('.eway-paynow-button');
+        const button = buttonRef.current.querySelector('.eway-paynow-button');
         if (button) {
             button.setAttribute('data-amount', amount || '0');
         }
