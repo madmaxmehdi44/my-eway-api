@@ -7,7 +7,7 @@ import { env } from "process";
 export async function GET() {
     const auth = Buffer.from(`${'jkjkjk'}:${'gfgfgfg'}`).toString("base64");
 
-    const res = await fetch(`${'dfgdfgfd'}`, {
+    const res = await fetch(`${dfgdfgfd}`, {
         headers: {
             Authorization: `Basic ${auth}`,
             "Content-Type": "application/json"
